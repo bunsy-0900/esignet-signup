@@ -66,6 +66,7 @@ export const ResetPassword = ({ methods, settings }: ResetPasswordProps) => {
   );
 
   const {
+    reset,
     trigger,
     formState: {
       errors: passwordResetFormError,
@@ -77,8 +78,8 @@ export const ResetPassword = ({ methods, settings }: ResetPasswordProps) => {
   const { resetPasswordMutation } = useResetPassword();
 
   const handleBack = useCallback(() => {
-    setValue("otp", "", { shouldValidate: true });
-    setStep(ResetPasswordStep.Otp);
+    setStep(ResetPasswordStep.UserInfo);
+    reset(resetPasswordFormDefaultValues);
   }, [step, setStep, setValue]);
 
   const disabledContinue =
