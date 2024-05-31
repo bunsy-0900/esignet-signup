@@ -33,7 +33,7 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     backend: {
-      loadPath: process.env.PUBLIC_URL + "/locales/{{lng}}.json",
+      loadPath: import.meta.env.PUBLIC_URL + "/locales/{{lng}}.json",
     },
   });
 

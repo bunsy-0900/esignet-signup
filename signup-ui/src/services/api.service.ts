@@ -4,8 +4,8 @@ import { NavigateFunction } from "react-router-dom";
 import { SOMETHING_WENT_WRONG } from "~constants/routes";
 
 const API_BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? process.env.REACT_APP_API_BASE_URL
+  import.meta.env.NODE_ENV === "development"
+    ? import.meta.env.VITE_API_BASE_URL
     : window.origin + "/v1/signup";
 
 export class HttpError extends Error {

@@ -61,7 +61,7 @@ This opens [http://localhost:6006](http://localhost:6006) in the browser. Making
 By default, the environment variables are:
 | variable | value |
 | -------- | ----- |
-| `REACT_APP_API_BASE_URL` | http://localhost:8088/v1/signup |
+| `VITE_API_BASE_URL` | http://localhost:8088/v1/signup |
 
 #### Translation
 

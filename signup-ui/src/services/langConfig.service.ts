@@ -10,7 +10,7 @@ const defaultConfigEndpoint = "/locales/default.json";
  * @returns json object
  */
 const getLocaleConfiguration = async (): Promise<ILangConfig> => {
-  const endpoint = process.env.PUBLIC_URL + defaultConfigEndpoint;
+  const endpoint = import.meta.env.PUBLIC_URL + defaultConfigEndpoint;
 
   const response = await axios.get(endpoint);
   return response.data;

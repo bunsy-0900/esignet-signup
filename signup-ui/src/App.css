@@ -1,8 +1,9 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/kantumruy-pro";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/kantumruy-pro";
 
 body {
   background: var(--background-body) 0% 0% no-repeat padding-box;
@@ -100,7 +101,8 @@ body {
   opacity: 1;
 }
 
-.cancel_btn, .cancel_btn:hover {
+.cancel_btn,
+.cancel_btn:hover {
   border: var(--cancel-button-border);
   border-radius: var(--cancel-button-border-radius);
   background: none;
@@ -154,24 +156,24 @@ body {
     --s: 40px; /* the size on the corner */
     --t: 5px; /* the thickness of the border */
     --g: 10px; /* the gap between the border and image */
-  
+
     padding: calc(var(--g) + var(--t));
     outline: var(--t) solid var(--video-preview-border-color); /* the color here */
     outline-offset: calc(-1 * var(--t));
     border-radius: 15px;
-  
+
     /* for chrome browser */
     -webkit-mask:
       conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0 /
         calc(100% - var(--s)) calc(100% - var(--s)),
       linear-gradient(#000 0 0) content-box;
-  
+
     /* for firefox browser */
     mask:
       conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0 /
         calc(100% - var(--s)) calc(100% - var(--s)),
       linear-gradient(#000 0 0) content-box;
-    transition: .4s;
+    transition: 0.4s;
   }
 }
 

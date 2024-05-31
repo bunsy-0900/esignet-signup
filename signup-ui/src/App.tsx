@@ -38,7 +38,7 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const isDev = process.env.NODE_ENV === "development";
+  const isDev = import.meta.env.NODE_ENV === "development";
 
   const {
     langFontMapping,
@@ -75,6 +75,7 @@ function App() {
             });
           }
         }
+        console.log("🚀 ~ langConfigService.getLocaleConfiguration ~ langData:", langData)
         setLangCodeMapping(response.langCodeMapping);
         setLanguages2Letters(response.languages_2Letters);
         setRtlLanguages(response.rtlLanguages);
