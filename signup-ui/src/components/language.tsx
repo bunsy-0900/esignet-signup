@@ -40,13 +40,19 @@ export const Language = () => {
 
     // Convert the decoded string to JSON
     var jsonObject: Record<string, string> = {};
-    urlSearchParams.forEach(function (value, key) {
-      jsonObject[key] = value;
-      // Assign the current i18n language to the ui_locales
-      if (key === ui_locales) {
-        jsonObject[key] = language;
-      }
-    });
+
+    if (!hashCode) {
+      // add ui_locales if it is not there
+      jsonObject[ui_locales] = language;
+    } else {
+      urlSearchParams.forEach(function (value, key) {
+        jsonObject[key] = value;
+        // Assign the current i18n language to the ui_locales
+        if (key === ui_locales) {
+          jsonObject[key] = language;
+        }
+      });
+    }
 
     // Convert the JSON back to decoded string
     Object.entries(jsonObject).forEach(([key, value]) => {
@@ -130,7 +136,7 @@ export const Language = () => {
               </DropdownMenu.Item>
             ))}
             <DropdownMenu.Arrow asChild>
-              <Icons.chevronUpSolid className="stroke-[#bcbcbc] h-[7px]"/>
+              <Icons.chevronUpSolid className="h-[7px] stroke-[#bcbcbc]" />
             </DropdownMenu.Arrow>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>

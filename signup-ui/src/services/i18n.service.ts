@@ -4,24 +4,11 @@ import Backend from "i18next-http-backend";
 import ICU from "i18next-icu";
 import { initReactI18next } from "react-i18next";
 
-if (!localStorage.getItem("esignet-signup-language")) {
-  localStorage.setItem(
-    "esignet-signup-language",
-    (window as any)._env_.DEFAULT_LANG
-  );
-}
-
 i18n
   // follow ICU format
   .use(ICU)
   // detect available locale files
   .use(Backend)
-  // detect user language
-  .use(
-    new LanguageDetector(null, {
-      lookupLocalStorage: "esignet-signup-language",
-    })
-  )
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
   // init i18next
