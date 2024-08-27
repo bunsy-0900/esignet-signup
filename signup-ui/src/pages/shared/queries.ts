@@ -69,7 +69,7 @@ export const useIdentityVerificationStatus = ({
   attempts: number;
   delay: number;
   retriableErrorCodes: string[];
-}): UseQueryResult<IdentityVerificationStatusResponseDto, unknown> => {
+}): UseQueryResult<IdentityVerificationStatusResponseDto> => {
   return useQuery<IdentityVerificationStatusResponseDto>({
     queryKey: keys.identityVerificationStatus,
     queryFn: () => getIdentityVerificationStatus(retriableErrorCodes),

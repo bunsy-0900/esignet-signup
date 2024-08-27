@@ -97,6 +97,7 @@ const IdentityVerificationStatusPossibleErrors = [
 
 export type IdentityVerificationStatusErrors =
   (typeof IdentityVerificationStatusPossibleErrors)[number];
+
 export interface Error {
   errorCode:
     | GenerateChallengeErrors
@@ -444,5 +445,4 @@ export type IdentityVerificationStatusResponseDto = BaseResponseDto & {
   response: {
     status: IdentityVerificationStatus;
   } | null;
-  errors: IdentityVerificationStatusErrors;
 };
