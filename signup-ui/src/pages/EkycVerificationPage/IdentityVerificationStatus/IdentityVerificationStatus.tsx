@@ -25,6 +25,7 @@ export const IdentityVerificationStatus = ({
   // isError occurs when the query encounters a network error or the request limit attempts is reached
   const {
     data: identityVerificationStatus,
+    error: identityVerificationStatusError,
     isError: isIdentityVerificationStatusError,
   } = useIdentityVerificationStatus({
     attempts: settings.configs["status.request.limit"],
@@ -52,7 +53,12 @@ export const IdentityVerificationStatus = ({
   //    - error codes specified in `status.request.retry.error.codes`
   if (isIdentityVerificationStatusError) {
     window.onbeforeunload = null;
-    window.location.href = `${settings.configs["esignet-consent.redirect-url"]}?key=${state}&error=true`;
+
+    if (identityVerificationStatusError) {
+      window.location.href = `${settings.configs["esignet-consent.redirect-url"]}?key=${state}&error=${identityVerificationStatusError.message}`;
+    } else {
+      window.location.href = `${settings.configs["esignet-consent.redirect-url"]}?key=${state}&error=true`;
+    }
   }
 
   // scenario:
